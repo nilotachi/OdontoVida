@@ -1,0 +1,100 @@
+#Creando tabela Odonto Vida_A3.
+
+#Criando Tabela Pessoa na db_odontovida:
+
+CREATE TABLE `db_odontovida`.`tbl_pessoa` (
+ `Nome` VARCHAR(25) NOT NULL,
+  `Sobrenome` VARCHAR(50) NOT NULL,
+  `CPF` CHAR(11) NOT NULL,
+  `Email` VARCHAR(45) PRIMARY KEY NOT NULL,
+  `Data_Nascimento` DATE NOT NULL,
+  `Idade` VARCHAR(45) NULL,
+  PRIMARY KEY (`Email`),
+  UNIQUE INDEX `idl_pessoas_UNIQUE` (`ID_Pessoas` ASC) VISIBLE,
+  UNIQUE INDEX `CPF_UNIQUE` (`CPF` ASC) VISIBLE,
+  UNIQUE INDEX `Email_UNIQUE` (`Email` ASC) VISIBLE);
+
+#Criando Tabela Cliente na db_odontovida:
+
+CREATE TABLE `db_odontovida`.`tbl_cliente` (
+  `ID_Cliente` SMALLINT NOT NULL AUTO_INCREMENT,
+  `Nome` VARCHAR(25) NOT NULL,
+  `Sobrenome` VARCHAR(50) NOT NULL,
+  `CPF` CHAR(11) NOT NULL,
+  `Email` VARCHAR(45) NOT NULL,
+  `Data_Nascimento` DATE NOT NULL,
+  `Idade` VARCHAR(45) NULL,
+  `Telefone`INT NULL,
+ 
+  
+  PRIMARY KEY (`ID_Cliente`),
+  UNIQUE INDEX `id_cliente_UNIQUE` (`ID_Cliente` ASC) VISIBLE,
+  UNIQUE INDEX `CPF_UNIQUE` (`CPF` ASC) VISIBLE,
+  UNIQUE INDEX `Email_UNIQUE` (`Email` ASC) VISIBLE);
+
+#Criando Tabela Recepcionista na db_odontovida:
+
+CREATE TABLE `db_odontovida`.`tbl_recepcionista` (
+  `ID_Recepcionista` SMALLINT NOT NULL AUTO_INCREMENT,
+  `Nome` VARCHAR(25) NOT NULL,
+  `Sobrenome` VARCHAR(50) NOT NULL,
+  `CPF` CHAR(11) NOT NULL,
+  `Email` VARCHAR(45) NOT NULL,
+  `Data_Nascimento` DATE NOT NULL,
+  `Idade` VARCHAR(45) NULL,
+  `Telefone` INT NULL,
+  `Sexo` CHAR(1) NULL,
+  
+  PRIMARY KEY (`ID_Recepcionista`),
+  UNIQUE INDEX `id_recepcionista_UNIQUE` (`ID_Recepcionista` ASC) VISIBLE,
+  UNIQUE INDEX `CPF_UNIQUE` (`CPF` ASC) VISIBLE,
+  UNIQUE INDEX `Email_UNIQUE` (`Email` ASC) VISIBLE);
+
+#Criando Tabela Medico na db_odontovida:
+
+CREATE TABLE `db_odontovida`.`tbl_medico` (
+  `ID_Medico` SMALLINT NOT NULL AUTO_INCREMENT,
+  `Nome` VARCHAR(25) NOT NULL,
+  `Sobrenome` VARCHAR(50) NOT NULL,
+  `CPF` CHAR(11) NOT NULL,
+  `Email` VARCHAR(45) NOT NULL,
+  `Data_Nascimento` DATE NOT NULL,
+  `Idade` VARCHAR(45) NULL,
+  `Telefone` INT NULL,
+  `Sexo` CHAR(1) NULL,
+  
+  PRIMARY KEY (`ID_Medico`),
+  UNIQUE INDEX `id_Medico_UNIQUE` (`ID_Medico` ASC) VISIBLE,
+  UNIQUE INDEX `CPF_UNIQUE` (`CPF` ASC) VISIBLE,
+  UNIQUE INDEX `Email_UNIQUE` (`Email` ASC) VISIBLE);
+
+#Adicionando coluna Sexo a tabela Cliente na db_odontovida:
+
+ALTER TABLE `db_odontovida`.`tbl_cliente` 
+ADD COLUMN `Sexo` CHAR(1) NULL AFTER `Telefone`;
+
+#Criando Tabela de Login na db_odontovida:
+
+CREATE TABLE `db_odontovida`.`tbl_login` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `email` VARCHAR(45) NOT NULL,
+  `senha` VARCHAR(25) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE);
+
+#inserir usuario manualmente no sql:
+
+INSERT INTO `db_odontovida`.`tbl_login`(`id_login`, `email`, `senha`)
+	VALUES (1,'teste@nicolas.com','admin');
+
+
+
+
+
+
+
+
+
+
+
+INSERT INTO `db_odontovida`.`tbl_cliente` (nome, sobrenome, cpf, email, Data_Nascimento, senha) VALUES ('erivelton', 'castro', '12345678910','teste@erivelton.com', '1990-02-10', 'erivelton');
